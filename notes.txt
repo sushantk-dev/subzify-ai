@@ -1,0 +1,17 @@
+python -m venv venv
+
+venv\Scripts\activate.bat
+
+winget install ffmpeg
+
+pip install git+https://github.com/openai/whisper.git
+
+
+python transcribe.py audio.mp3                          # auto-detects the language, saves audio.txt
+python transcribe.py audio.mp3 --model medium --language hi
+python transcribe.py audio.mp3 --formats txt srt vtt    # adds subtitle files with timestamps
+python transcribe.py audio.mp3 --translate              # translates the speech into English
+
+For UI
+======
+python app.py
